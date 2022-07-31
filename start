@@ -1,0 +1,62 @@
+#!/bin/sh
+
+BONUS=
+
+for i in $@
+do
+	if [ "$i" = "b" ] || ["$i" = "a"]
+	then
+		BONUS="bonus"
+	fi
+done
+
+make ${BONUS} BUFF_SIZE=42
+
+if [ $? -ne 0 ]
+then
+	echo -e "\033[1;31m\ncompilation error.\033[0;0m"
+	python3 output_sean.py
+	if [ $? -ne 0 ]
+	then
+		cat sean.txt
+	fi
+	exit 1
+else
+	#echo "./tester $@ 2>myleaks.txt"
+	./tester $@ 2>myleaks.txt
+	make fclean
+fi
+
+# make BUFF_SIZE=1
+
+# if [ $? -ne 0 ]
+# then
+# 	echo -e "\033[1;31m\ncompilation error.\033[0;0m"
+# 	python3 output_sean.py
+# 	if [ $? -ne 0 ]
+# 	then
+# 		cat sean.txt
+# 	fi
+# 	exit 1
+# else
+# 	echo "./tester $@ 2>myleaks.txt"
+# 	./tester $@ 2>myleaks.txt
+# 	make fclean
+# fi
+
+# make BUFF_SIZE=1000
+
+# if [ $? -ne 0 ]
+# then
+# 	echo -e "\033[1;31m\ncompilation error.\033[0;0m"
+# 	python3 output_sean.py
+# 	if [ $? -ne 0 ]
+# 	then
+# 		cat sean.txt
+# 	fi
+# 	exit 1
+# else
+# 	echo "./tester $@ 2>myleaks.txt"
+# 	./tester $@ 2>myleaks.txt
+# 	make fclean
+# fi
