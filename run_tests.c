@@ -6,7 +6,7 @@
 /*   By: wxuerui <wxuerui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 10:02:50 by wxuerui           #+#    #+#             */
-/*   Updated: 2022/07/31 16:28:44 by wxuerui          ###   ########.fr       */
+/*   Updated: 2022/07/31 19:34:15 by wxuerui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,6 @@ int	check_result(t_status *status, int exit_sig, int correct)
 
 void	run_tests(t_status *status)
 {
-	char	*path = "random_tests/";
-	char	*filenum;
 	char	*filename;
 	int		i;
 	printf("Basic Tests: \n");
@@ -154,9 +152,8 @@ void	run_tests(t_status *status)
 	i = 0;
 	while (++i <= 500)
 	{
-		filenum = ft_itoa(i);
-		filename = ft_strjoin(path, filenum);
-		free(filenum);
+		filename = malloc(17);
+		sprintf(filename, "%s%d", "random_tests/", i);
 		basic_test(status, filename);
 		free(filename);
 	}
