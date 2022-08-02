@@ -6,7 +6,7 @@
 /*   By: wxuerui <wxuerui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 12:33:43 by wxuerui           #+#    #+#             */
-/*   Updated: 2022/07/31 15:56:33 by wxuerui          ###   ########.fr       */
+/*   Updated: 2022/08/02 18:05:51 by wxuerui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,39 @@ void	get_result(t_result **result, int fd, char *(*f)(int))
 			break ;
 		temp->next = create_new_node(line);
 		temp = temp->next;
+	}
+}
+
+void	get_bonus_result(t_result **result, int *fds, int files, char *(*f)(int))
+{
+	char		*line;
+	t_result	*temp;
+	int			fd;
+	int			stop = 0;
+	int			create_new = 1;
+
+	while (stop == 0)
+	{
+		for (int i = 0; i < files; i++)
+		{
+			fd = fds[i];
+			line = f(fd);
+			if (line == NULL)
+			{
+				stop = 1;
+				break ;
+			}
+			if (create_new == 1)
+			{
+				*result = create_new_node(line);
+				temp = *result;
+				create_new = 0;
+				free(line);
+				continue ;
+			}
+			temp->next = create_new_node(line);
+			temp = temp->next;
+		}
 	}
 }
 

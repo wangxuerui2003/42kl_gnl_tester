@@ -6,7 +6,7 @@
 /*   By: wxuerui <wxuerui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:28:18 by wxuerui           #+#    #+#             */
-/*   Updated: 2022/07/31 16:10:30 by wxuerui          ###   ########.fr       */
+/*   Updated: 2022/08/02 17:19:40 by wxuerui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <signal.h>
 # include <string.h>
 # include <stdbool.h>
+# include <stdarg.h>
 
 /*Colours*/
 # define BOLD		"\x1b[1m"
@@ -65,6 +66,7 @@ void	free_results(t_result *stdresult, t_result *userresult);
 int		check_correct(t_result *stdresult, t_result *userresult);
 void	print_results(t_result *stdresult, t_result *userresult);
 void	get_result(t_result **result, int fd, char *(*f)(int));
+void	get_bonus_result(t_result **result, int *fds, int files, char *(*f)(int));
 char	*ft_itoa(int n);
 char	*ft_strjoin(char const *s1, char const *s2);
 
