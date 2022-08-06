@@ -6,7 +6,7 @@
 /*   By: wxuerui <wxuerui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:29:06 by wxuerui           #+#    #+#             */
-/*   Updated: 2022/07/31 11:42:55 by wxuerui          ###   ########.fr       */
+/*   Updated: 2022/08/06 16:36:31 by wxuerui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 static void	init_status(int ac, char **av, t_status *status)
 {
-	int	i;
 
-	i = 0;
 	status->tests_runned = 0;
 	status->current_test = 0;
 	status->tests_correct = 0;
