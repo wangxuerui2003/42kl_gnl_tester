@@ -10,3 +10,4 @@ And in the repository, run:
 * `sh start`: run all the tests
 * `sh start m`: run all the mandatory tests
 * `sh start b`: run all the bonus tests
+* Run `./generate_500_files.sh` will generate 500 random files for you and make random tests. (This can be super slow, so I generated them already)
