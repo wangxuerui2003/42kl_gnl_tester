@@ -46,7 +46,6 @@ void	get_result(t_result **result, int fd, char *(*f)(int))
 void	get_bonus_result(t_result **result, int *fds, int files, char *(*f)(int))
 {
 	char		*line;
-	char		*temp2;
 	t_result	*temp;
 	int			fd;
 	int			stop = 0;
@@ -72,7 +71,6 @@ void	get_bonus_result(t_result **result, int *fds, int files, char *(*f)(int))
 			}
 			temp->next = create_new_node(line);
 			temp = temp->next;
-			temp2 = line;
 		}
 	}
 }
